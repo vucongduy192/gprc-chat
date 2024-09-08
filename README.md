@@ -10,7 +10,9 @@ Demo some type of gRPC response (unary or stream)
 
 ### Demo chat app
 
-![GRPC Chat Demo](images/chat_demo.gif)
+<video controls>
+  <source src="images/chat_demo.mov" type="video/mp4">
+</video>
 
 ![GRPC Chat](images/chat_demo.png)
 
