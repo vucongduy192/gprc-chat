@@ -1,0 +1,39 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "pb/";
+
+message GreetRequest {
+  string firstname = 1;
+  string lastname = 2;
+}
+
+message ServerStreamGreetRequest {
+  string firstname = 1;
+  string lastname = 2;
+}
+
+message ClientStreamGreetRequest {
+  string firstname = 1;
+  string lastname = 2;
+}
+
+message BiDirectionalGreetRequest {
+  string firstname = 1;
+  string lastname = 2;
+}
+
+message GreetResponse { string result = 1; }
+message ServerStreamGreetResponse { string result = 1; }
+message ClientStreamGreetResponse { string result = 1; }
+message BiDirectionalGreetResponse { string result = 1; }
+
+service ProtocService {
+  rpc Greet(GreetRequest) returns (GreetResponse) {};
+  rpc GreetServerStream(ServerStreamGreetRequest)
+      returns (stream ServerStreamGreetResponse) {};
+  rpc GreetClientStream(stream ClientStreamGreetRequest)
+      returns (ClientStreamGreetResponse) {};
+  rpc GreetBiDirectionalStream(stream BiDirectionalGreetRequest)
+      returns (stream BiDirectionalGreetResponse) {};
+}
